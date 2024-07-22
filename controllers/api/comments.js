@@ -1,28 +1,55 @@
 const router = require('express').Router();
 const { Users, BlogPost, Comments } = require('../../models');
 
-router.post('/:id' , (req,res) => {
+router.post('/' , async (req,res) => {
     // create comments
+        // create comments
+        const newComment = await Comments.create(req.body)
+        res.json(newComment)
 }
 )
 
-router.get ('/' , (req,res) => {
+router.get ('/comments/:postId' , async (req,res) => {
     // all comments
-}
-)
+    const newComment = await Comments.findAll({
+        where: {
+            postId: req.params.postId}
+    })
+    res.json(newComment)
 
-router.get ('/:id' , (req,res) => {
+})
+
+
+router.get ('/:id' , async (req,res) => {
     // specific comments
+    const newComment = await Comments.findOne({
+        where: {
+          id: req.params.id
+        },
+      })
+      res.json(newComment)
 }
 )
 
-router.put ('/:id' , (req,res) => {
+router.put ('/:id' , async (req,res) => {
     // update comments
+    const newComment = await Comments.update(req.body, {
+        where: {
+         id: req.params.id
+        },
+      })
+      res.json(newComment)
 }
 )
 
-router.delete ('/:id' , (req,res) => {
+router.delete ('/:id' , async (req,res) => {
     // delete
+    const newComment = await Comments.destroy({
+        where: {
+          id: req.params.id
+        },
+      })
+      res.json(newComment)
 }
 )
 
