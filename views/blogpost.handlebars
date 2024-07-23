@@ -1,0 +1,33 @@
+<div class="blogPostCommentSection" id="{{blog.id}}"> 
+    <h2>
+        <a href="/blogpost/{{blog.id}}">{{blog.title}}</a>
+    </h2>
+    <div>
+        {{blog.body}}
+
+    </div>
+    <span>
+        {{blog.user.email}}
+    </span>
+    <form>Leave a comment<textarea id="comment"></textarea> 
+    <button type="submit" id="commentButton">Submit</button>
+    </form>
+    <div>
+         {{#each blogs.comment}}
+    <div>
+        <div>
+            {{text}}
+
+        </div>
+        <span>
+            {{user.email}}
+        </span>
+
+    </div>
+
+
+    {{/each}}
+    </div>
+    <script>"/js/newcomment.js"</script>
+
+</div>

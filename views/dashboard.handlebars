@@ -1,0 +1,19 @@
+<div>Dashboard
+    {{#each blogs}}
+    <div>
+        <h2>
+            <a href="/blogpost/{{id}}">{{title}}</a>
+        </h2>
+        <div>
+            {{body}}
+
+        </div>
+        <span>
+            {{user.email}}
+        </span>
+
+    </div>
+
+
+    {{/each}}
+</div>

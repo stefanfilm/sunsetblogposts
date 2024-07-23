@@ -9,12 +9,9 @@ router.post('/' , async (req,res) => {
 }
 )
 
-router.get ('/comments/:postId' , async (req,res) => {
+router.post ('/comments/:postId' , async (req,res) => {
     // all comments
-    const newComment = await Comments.findAll({
-        where: {
-            postId: req.params.postId}
-    })
+    const newComment = await Comments.create({...req.body, userId: req.session.user_id, postId: req.params.postId })
     res.json(newComment)
 
 })
