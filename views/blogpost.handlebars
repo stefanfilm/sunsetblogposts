@@ -13,7 +13,7 @@
     <button type="submit" id="commentButton">Submit</button>
     </form>
     <div>
-         {{#each blogs.comment}}
+         {{#each blog.comments}}
     <div>
         <div>
             {{text}}
@@ -21,6 +21,7 @@
         </div>
         <span>
             {{user.email}}
+            {{createdAt}}
         </span>
 
     </div>
@@ -28,6 +29,6 @@
 
     {{/each}}
     </div>
-    <script>"/js/newcomment.js"</script>
+    <script src= "/js/newcomment.js"></script>
 
 </div>

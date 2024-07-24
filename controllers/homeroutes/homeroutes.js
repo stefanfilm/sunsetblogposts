@@ -33,11 +33,13 @@ router.get('/blogpost/:id' , async (req,res) => {
     const blogPostData = await BlogPost.findOne({
         where: {
             id: req.params.id
-        }, include: [Users, Comments]
+        }, include: [Users, {
+            model: Comments,
+        include: [Users]
+        }]
 
     })
     const blog = blogPostData.get({ plain: true });
-    console.log(blog);
     res.render('blogpost', {blog})
 })
 
